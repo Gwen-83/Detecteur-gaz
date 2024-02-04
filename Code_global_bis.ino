@@ -1,0 +1,192 @@
+#include <rgb_lcd.h>
+#include <MQ2.h>
+#include <SparkFun_SGP30_Arduino_Library.h>
+#include <Wire.h>
+#include "Air_Quality_Sensor.h"
+#include <Servo.h>
+
+
+rgb_lcd lcd; //déclare l'écran lcd comme un écran rgb
+SGP30 mySensor; //create an object of the SGP30 class
+
+int MQ7=7;
+int MQ2=2;
+int ledR = 10; // ledR correspond à la ledR de la RGB sur le capteur SPG30 (CO2)
+int ledB = 11; // ledB correspond à la ledB de la RGB sur le capteur SPG30 (CO2)
+int ampli2 = 8;
+AirQualitySensor sensor(A0); //capteur v1.3
+
+void setup() 
+{
+Serial.println();
+  pinMode(MQ7, INPUT);
+  pinMode(MQ2, INPUT);
+
+  Serial.begin(9600); //taux de transmission des données en bits/s
+  pinMode(ledR, OUTPUT);
+  pinMode(ledB, OUTPUT);
+  pinMode(ampli2, OUTPUT);
+
+  lcd.begin(16, 2); //déclare le nombre de ligne et de colonne de l'écran à l'arduino
+
+  lcd.setCursor(2,0 );
+  lcd.print ("AeroSafe AMG");
+  lcd.setCursor(6,1);
+  lcd.print("v1.15");
+  delay(5000);
+  lcd.clear();
+
+  Wire.begin();//initialise le capteur SGP30
+
+  if (mySensor.begin() == false) {
+    Serial.println("No SGP30 Detected. Check connections."); //Si les branchements sont mal fait ou capteur non détecté, message d'erreur
+    lcd.setCursor(0, 0);
+    lcd.print("Connection lost");
+    jouerSon(255); // Fréquence de 1000 Hz, durée de 1 seconde
+    delay(1500);
+    while(1);
+  } else{
+    Serial.println("SGP30 initialized successfully");
+  }
+  //Initializes sensor for air quality readings
+  //measureAirQuality should be called in one second increments after a call to initAirQuality
+  mySensor.initAirQuality(); //initialise la mesure des niveaux de CO2 et de COV
+
+  if (digitalRead(MQ7) == HIGH) {
+    // Le capteur de gaz est correctement branché
+    Serial.println("Le capteur MQ7 est correctement branché.");
+  } else {
+    // Le capteur de gaz n'est pas correctement branché
+    Serial.println("Erreur : Le capteur MQ7 n'est pas correctement branché !");
+    lcd.clear();
+    lcd.print("MQ7 mal branche");
+    while(1);
+  }
+
+  if (digitalRead(MQ2) == HIGH) {
+    // Le capteur de gaz est correctement branché
+    Serial.println("Le capteur MQ2 est correctement branché.");
+  } else {
+    // Le capteur de gaz n'est pas correctement branché
+    Serial.println("Erreur : Le capteur MQ2 n'est pas correctement branché !");
+    lcd.clear();
+    lcd.print("MQ2 mal branche");
+    while(1);
+  }
+
+  lcd.clear();
+  lcd.setCursor(2,0);
+  lcd.print("Connexion OK");
+  delay(2500);
+  lcd.clear();
+}
+
+void loop() 
+{
+  //First fifteen readings will be CO2: 400 ppm  TVOC: 0 ppb
+  //Programme pour le fonctionnement su SPG30
+  mySensor.measureAirQuality(); //mesurer la qualité de l'air et de mettre à jour les valeurs associées aux gaz
+  Serial.print("CO2: "); //Affiche dans le Serial Monitor
+  Serial.print(mySensor.CO2); //Affiche dans le Serial Monitor la variable mySensor du CO2
+  Serial.print(" ppm\tTVOC: "); //Affiche dans le Serial Monitor  
+  Serial.print(mySensor.TVOC); //Affiche dans le Serial Monitor la variable mySensor du COV
+  Serial.print(" ppb  "); //Affiche dans le Serial Monitor
+  if(mySensor.CO2>1500 && mySensor.CO2<4000){
+    lcd.clear();
+    digitalWrite(ledB, HIGH);
+    lcd.setCursor(4, 0);
+    lcd.print("CO2 moyen"); //Affiche dans le Serial Monitor
+    delay(3000);
+  }
+  if(mySensor.CO2>4000){
+    lcd.clear();
+    digitalWrite(ledR, HIGH);
+    lcd.setCursor(4, 0);
+    lcd.print("CO2 haut"); //Affiche dans le Serial Monitor 
+    jouerSon(255); // Fréquence de 1000 Hz, durée de 4 secondes
+    delay(500);
+  }
+  else
+  {
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledB, LOW);
+    lcd.clear();
+    lcd.setCursor(3,0);
+    lcd.print("pas de CO2");
+    delay(1500);
+  }
+
+  //début programmme TVOC SGP30
+  if(mySensor.TVOC>300){ //Fais la même chose pour les TVOC
+    lcd.clear();
+    digitalWrite(ledR, HIGH); //Si mySensor.CO2 est supérieur à 1100ppm alors led=5V
+    lcd.setCursor(3, 0);
+    lcd.print("TVOC haut"); //Affiche dans le Serial Monitor
+    digitalWrite(ledR, HIGH);
+    jouerSon(255); // Fréquence de 1000 Hz, durée de 4 secondes
+    delay(1500);
+  }
+  else
+  {
+    digitalWrite(ledR, LOW);
+    lcd.clear();
+    lcd.setCursor(3,0);
+    lcd.print("pas de TVOC");
+    delay(1500);
+  }
+
+  //début programme MQ7
+  if (digitalRead(MQ7)==LOW){
+    Serial.print("limite atteinte en CO   ");
+    lcd.clear();
+    lcd.setCursor(2,0);
+    lcd.print("Taux CO haut");
+    digitalWrite(ledR, HIGH);
+    jouerSon(255);
+    delay(500);
+  }
+  else{
+    Serial.print("limite CO ok    ");
+    lcd.clear();
+    lcd.setCursor(3,0);
+    lcd.print("pas de CO");
+    delay(1500);
+  }
+
+  //début programme MQ2
+  if(digitalRead(MQ2)==LOW){
+    Serial.print("limite atteinte en CH   ");
+    lcd.clear();
+    lcd.setCursor(2,0);
+    lcd.print("Taux CH haut");
+    digitalWrite(ledR, HIGH);
+    jouerSon(255);
+    delay(500);
+  }
+  else{
+    Serial.print("limite CH ok  ");
+    lcd.clear();
+    lcd.setCursor(3,0);
+    lcd.print("pas de CH");
+    delay(1500);
+  }
+
+  delay(500); // Attendre 1 seconde avant la prochaine lecture
+  lcd.clear();
+
+  Serial.print(millis()/1000); //Affiche dans le Serial Monitor le temps depuis le début de l'acquisition
+  Serial.println("s"); //Affiche dans le Serial Monitor
+
+  ledLow();
+}
+
+void jouerSon(int P) {
+  analogWrite(ampli2, P);
+  delay(3000);
+  analogWrite(ampli2,0);
+}
+
+void ledLow(){
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledB, LOW);
+}
