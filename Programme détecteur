@@ -1,3 +1,13 @@
+/*
+Grove_Air_Quality_Sensor.ino
+    Demo for Aerosafe AMG-détecteur gaz.
+
+    Copyright (c) 2024 Aerosafe.
+    Author    : Bruno Anaïs, Drouet Gwénaël, Hommage Maléna
+    Created Time : Sep 2023
+    La licence Aerosafe
+
+*/
 #include <rgb_lcd.h>
 #include <MQ2.h>
 #include <SparkFun_SGP30_Arduino_Library.h>
