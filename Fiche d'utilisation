@@ -1,0 +1,127 @@
+FICHE D’UTILISATION DE L’AEROSAFE DETECTOR AMG
+
+Informations Générales
+Informations relatives au mode d'emploi
+
+Ce mode d'emploi vous permet de travailler en toute sécurité avec votre AeroSafe Detector AMG. Il doit être conservé à titre d'information. Le AeroSafe detector AMG doit être utilisé uniquement par des personnes averties et ayant lu cette fiche d’utilisation. Nous déclinons toutes responsabilités pour des dommages dus à un non-respect de ce mode d'emploi.
+
+Remarques:
+🛑
+Danger !! 
+Tout non-respect de cet avertissement risque de causer des blessures. 
+⚠️
+Attention !!
+Désigne des consignes signalant un danger dont la non-observation peut conduire à des dommages de l'appareil.
+👉
+A noter !
+Informations utiles
+
+Utilisation conforme:
+Le AeroSafe Detector AMG est un appareil à réponse rapide pour le contrôle et la détection de fuites de gaz. Le détecteur affiche la concentration des gaz en cas d’excès par rapport à la limite prévue. Le détecteur convient à la surveillance de la pollution de l’air dans un domicile. L'appareil permet la détection de fuite, par la mesure de la concentration de gaz. Exploiter l'appareil uniquement dans des locaux intérieurs.
+
+Traitement des déchets:
+Les composants électroniques ne sont pas des déchets domestiques. Ils doivent être éliminés en respectant la législation en vigueur. Les batteries et composants défectueux, une fois retirés de l'appareil, peuvent être déposés dans un centre de recyclage des déchets publics, un point de vente ou de stockage de batteries.
+
+Coordonnées:
+IUT Saint-Jérôme
+142 traverse Charles Susini
+Tel: +33 7 83 49 48 49
+E-mail: Aerosafe@gmail.com 
+
+Données Techniques:
+Type de détecteur
+Semi-conducteur au dioxyde d’étain
+
+Plage de mesure
+CO2 : 400 - 60 000 ppm
+CO : 20 - 2 000 ppm
+TVOC : 0 - 60 000 ppb
+Méthane : 200 - 10 000 ppm
+Butane : 200 - 10 000 ppm
+Propane : 200 - 10 000 ppm
+fumée de cuisson :  10 - 1 000 ppm
+
+Alarme
+Led rouge
+haut parleur à 437 Hz
+Ecran LCD
+
+Temps de réaction
+3 secondes
+
+Période de chauffage
+120 secondes
+
+Température de fonctionnement
+0°C - 60°C
+
+Température de stockage
+15°C - 35°C
+
+Alimentation en électricité
+Sur secteur
+
+Consommation de courant
+0,4 A
+
+Dimension
+Semestre 4
+Poids
+Semestre 4
+
+Consignes importantes:
+🛑
+Le capteur sera endommagé, s‘il est exposé à des conditions extrêmes pendant longtemps, par exemple, l‘humidité, des températures extrêmes ou de pollution.
+
+⚠️
+L‘appareil ne doit pas être stocké à proximité des produits de nettoyage et tout autres produits pouvant créer des émanations. Ces vapeurs sont dangereuses pour le capteur. 
+⚠️
+Le contact avec des matériaux corrosifs (H2S, SOx, CI2 ou HCI ) peut détruire le capteur. 
+⚠️
+Protégez le capteur des vapeurs d'eau. La performance du capteur peut également être affectée si le capteur est exposé à un gaz à haute densité sur une longue période. 
+⚠️
+De la glace sur la surface du capteur détruit le capteur.
+
+👉
+Le détecteur ne fonctionne pas correctement dans un environnement présentant une faible teneur en oxygène. Il a besoin d‘une teneur en oxygène d‘environ 21%.
+
+
+Description du produit:
+METTRE UNE IMAGE DU CAPTEUR DANS LE BOITIER ET DÉCRIRE CHAQUE PARTIE DU BOITIER ET SON UTILITÉ
+
+Utilisation:
+👉
+Mettez l'appareil en marche dans un environnement non contaminé, par exemple en extérieur ou dans une pièce aérée. 
+Mettre sous tension en appuyant sur l’interrupteur
+La version du microprogramme est alors brièvement affichée à l'écran.
+Le temps de chauffage lors de l’allumage est de 40 secondes avant de pouvoir l’utiliser.
+En cas de première utilisation, il faut laisser l’appareil chauffer 24 à 48h.
+
+Test de fonctionnement:
+Lors de l’allumage:
+Nous recommandons de procéder à un contrôle du fonctionnement du détecteur de gaz avant chaque utilisation. Pour ce faire, procédez comme suivant:
+Mettez le détecteur de gaz en marche
+Contrôlez l'état extérieur de l'appareil et le bon fonctionnement de l'écran
+Tenez le détecteur à l'air libre ou dans un endroit le plus pur possible
+L’écran ne devrait rien afficher excepté “bonne qualité d’air”
+Contrôlez la sensibilité du détecteur de gaz dans un local aéré comme suit
+Laissez le gaz s'échapper à l'aide d'un briquet à gaz (ne l'allumez pas !)
+Placez la sonde du détecteur de CO2 à proximité du gaz qui s'échappe
+Le haut-parleur doit alors émettre un signal clair
+
+Une fois par mois:
+Effectuez un bref appui sur le bouton reset une fois par mois pour s’assurer que toutes les connectiques sont branchés.
+Si c’est le cas, comme la première fois, vous verrez marqué “connexion OK”
+Si ce n’est pas le cas, vous verrez marqué “connection lost”
+Dans ce cas, il faudra contacter le service après vente d’Aerosafe en expliquant le problème.
+
+Détection des fuites:
+Une fois que l‘appareil va détecter une fuite, l'affichage va indiquer quel est le gaz présent, le détecteur va allumer une led en rouge (ou bleu pour le CO2 si le taux n’est pas trop élevé) et faire sonner un haut parleur.
+Lorsque “taux CO/CH haut” est affiché, cela signifie que le taux maximal de monoxyde de carbone, de méthane, de butane ou propane est atteint. Si un gaz est affiché comme haut, il faut évacuer les lieux et bien ouvrir les fenêtres. Si c’est le CO qui est détecté, il vous est conseillé d’appeler les autorités locales pour savoir la procédure à adopter.
+
+Positionnement de l’AeroSafe Detector AMG:
+L’AeroSafe Detector AMG doit être placé en hauteur sur le plafond si possible ou sur les murs dans le cas contraire.
+Celui-ci doit être éloigné des zones humides, des zones avec de forts courants d’air, des zones ou vous pouvez rester longtemps sans bouger et de la cuisine.
+
+Garanties:
+Chaque AeroSafe Detector AMG a été testé dans toutes ses fonctions et ne quitte notre usine qu'après avoir été soumis à un contrôle de qualité approfondi. À défaut d'utilisation inappropriée, la durée de garantie est de douze mois à compter de la date d'achat. En cas de réparation, les frais de port et d'emballage de l'appareil ne sont pas couverts par la garantie. Cette garantie s'arrête lorsque des réparations et modifications ont été effectuées par un personnel non autorisé.
