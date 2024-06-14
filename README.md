@@ -16,6 +16,7 @@ Afin d'utiliser le détecteur, il faut télécharger les bibliothèques suivante
 - https://github.com/Seeed-Studio/Grove_Air_quality_Sensor
 - Servo.h (directement sur IDE Arduino)
 - Wire.h (directement sur IDE Arduino)
+- SoftwareSerial.h (directement sur IDE Arduino)
 
 Ce détecteur est conçu pour une surveillance complète des conditions de l’air intérieur mais n'est pas conçu pour être une alerte fiable.
 Il réagit à un large éventail de gaz nocifs tels que le monoxyde de carbone, le dioxyde de carbone, les TVOC, le butane, le méthane, le propane et les fumées de cuisson.
