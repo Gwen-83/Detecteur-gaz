@@ -49,9 +49,6 @@ int MQ2 = 3;
 int ledR = 4;
 int ledB = 5;
 int ampli2 = 6;
-int bouton = 2;
-int chipSelect = 10;
-bool programme = false;
 
 
 
@@ -80,8 +77,6 @@ void setup() {
   pinMode(ledR, OUTPUT);
   pinMode(ledB, OUTPUT);
   pinMode(ampli2, OUTPUT);
-
-  pinMode (chipSelect, OUTPUT);
 
   lcd.begin(16, 2);
   lcd.setCursor(2, 0);
@@ -241,8 +236,4 @@ void loop() {
   
   ledLow();
   lcd.clear();
-}
-void ledLow(){
-  digitalWrite(ledR, LOW);
-  digitalWrite(ledB, LOW);
 }
